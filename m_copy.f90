@@ -6,11 +6,13 @@ module m_copy
     end interface
 contains
     elemental subroutine copy_temps(t_to,t_from)
+        implicit none
         real(kind=single), intent(out) :: t_to
         real(kind=single), intent(out) :: t_from
         t_to=t_from
     end subroutine
     elemental subroutine copy_tempd(t_to,t_from)
+        implicit none
         real(kind=double), intent(out) :: t_to
         real(kind=double), intent(out) :: t_from
         t_to=t_from

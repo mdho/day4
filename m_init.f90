@@ -2,8 +2,9 @@ module m_init
     public :: init_data
 contains
     subroutine init_data()
-        use m_data
-        use m_allocate
+        use m_data, only: d,nt,dx,dy,dt,temp,temp_old
+        use m_allocate, only: alloc
+        implicit none
         integer :: st,nx,ny
         ! diffusion constant
         d = 1

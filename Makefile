@@ -15,14 +15,14 @@ PROGRAMS = main
 # "make" builds all
 all: $(PROGRAMS)
 
-main.o: main.f90 m_data.o m_init.o m_io.o m_compute.o m_copy.o m_allocate.o
-main: m_data.o m_init.o m_io.o m_compute.o m_copy.o m_allocate.o
+main.o: main.f90 m_data.o m_init.o m_io.o m_compute.o m_copy.o m_allocate.o m_time.o
+main: m_data.o m_init.o m_io.o m_compute.o m_copy.o m_allocate.o m_time.o
 
 m_init.o: m_init.f90 m_data.o m_allocate.o
 
 m_io.o: m_io.f90 m_data.o
 
-m_compute.o:  m_compute.f90 m_copy.o m_data.o
+m_compute.o:  m_compute.f90 m_copy.o m_data.o m_time.o
 # executables
 %: %.o
 	$(FC) $(FCFLAGS) -o $@ $^ $(LDFLAGS)

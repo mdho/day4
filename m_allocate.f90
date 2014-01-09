@@ -7,6 +7,7 @@ module m_allocate
     end interface
 contains
     subroutine allocs(field,nx,ny,stat)
+        implicit none
         real(kind=single), pointer, dimension(:,:), intent(inout) :: field
         integer, intent(in) :: nx,ny
         integer, optional, intent(out) :: stat
@@ -42,6 +43,7 @@ contains
         endif
     end subroutine
     subroutine allocd(field,nx,ny,stat)
+        implicit none
         real(kind=double), pointer, dimension(:,:), intent(inout) :: field
         integer, intent(in) :: nx,ny
         integer, optional, intent(out) :: stat

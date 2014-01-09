@@ -2,10 +2,11 @@ module m_io
     public :: to_file
 contains
     subroutine to_file(timestep)
-        use m_data
+        use m_data, only: temp,dx,dy
+        implicit none
         integer, optional :: timestep
         character(len=20) :: fname
-        integer :: nx,ny
+        integer :: nx,ny,j,i
         nx = size(temp,1)
         ny = size(temp,2)
 
